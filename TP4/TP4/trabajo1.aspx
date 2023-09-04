@@ -30,8 +30,6 @@
         </p>
         <p>
             <asp:CheckBox ID="internacionalCB" runat="server" Text="Internacional" />
-        </p>
-        <p>
             &nbsp;</p>
         <p>
             <asp:CheckBox ID="sociedadCB" runat="server" Text="Sociedad" />
