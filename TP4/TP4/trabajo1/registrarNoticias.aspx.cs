@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,11 +9,11 @@ using System.Web.UI.WebControls;
 public partial class _Default : System.Web.UI.Page
 {
 
-    //VARIABLES
+    /*VARIABLES*/
 
-    string correo, seleccion;
+    string correo, nombre, seleccion;
 
-    //METODOS
+    /*METODOS*/
 
     //Load
     protected void Page_Load(object sender, EventArgs e)
@@ -20,14 +21,29 @@ public partial class _Default : System.Web.UI.Page
 
     }
 
-    //EVENTOS
+    void registrarArchivo(string nombre,string correo, string seleccion)
+    {
+        StreamWriter archivo = new StreamWriter(this.Server.MapPath(".") + "/registrados.txt", true);
+        archivo.WriteLine("Nombre: " + nombre);
+        archivo.WriteLine("<br>");
+        archivo.WriteLine("Correo: " + correo);
+        archivo.WriteLine("<br>");
+        archivo.WriteLine("Temas Registrados: " + seleccion);
+        archivo.WriteLine("<br>");
+        archivo.WriteLine("<br>");
+        archivo.Close();
+    }
+
+
+    /*EVENTOS*/
 
     //Verificar Persona
     protected void verificarPersonaBT_Click(object sender, EventArgs e)
     {
         correo = correoTB.Text;
+        nombre = nombreTB.Text;
 
-        if (correo != "")
+        if (correo != "" && nombre != "")
         {
             int cantidadSeleccionada = 0;
             seleccion = "Temas Seleccionados (";
@@ -65,12 +81,14 @@ public partial class _Default : System.Web.UI.Page
             }
             else
             {
-                resultadoLB.Text = correo + " - " + seleccion;
+                resultadoLB.Text = nombre + " - " + correo + " - " + seleccion;
+
+                registrarArchivo(nombre, correo, seleccion);
             }
         }
         else
         {
-            resultadoLB.Text = "Falta registrar una direccion de correo válida.";
+            resultadoLB.Text = "Falta registrar una direccion de correo válida o nombre.";
         }
     }
 }

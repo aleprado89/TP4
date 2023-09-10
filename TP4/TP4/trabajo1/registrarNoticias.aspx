@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="trabajo1.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="registrarNoticias.aspx.cs" Inherits="_Default" %>
 
 <!DOCTYPE html>
 
@@ -12,10 +12,16 @@
         <div>
         </div>
         <asp:Label ID="Label1" runat="server" Text="Suscripción a Noticias:"></asp:Label>
+        <br />
+        <br />
+        <asp:Label ID="Label4" runat="server" Text="Nombre y Apellido:"></asp:Label>
+        <br />
+        <br />
+        <asp:TextBox ID="nombreTB" runat="server" Width="285px"></asp:TextBox>
         <p>
             <asp:Label ID="Label2" runat="server" Text="Direccion de Correo para la Suscripción: "></asp:Label>
         </p>
-            <asp:TextBox ID="correoTB" runat="server" Width="286px"></asp:TextBox>
+            <asp:TextBox ID="correoTB" runat="server" Width="285px"></asp:TextBox>
         <br />
         <br />
         <asp:Label ID="Label3" runat="server" Text="Seleccione los temas a los que se quiera suscribir: "></asp:Label>
@@ -40,6 +46,13 @@
         <p>
             <asp:Label ID="resultadoLB" runat="server" Text="-"></asp:Label>
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:HyperLink ID="volverHL" runat="server" NavigateUrl="~/trabajo1/inicio1.aspx">Ir a página principal</asp:HyperLink>
+        </p>
+        <p>
+            &nbsp;</p>
         <p>
             &nbsp;</p>
     </form>
