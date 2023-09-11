@@ -43,12 +43,12 @@ public partial class trabajo2_listadoCobros : System.Web.UI.Page
             pagos.DefaultView.Sort = "monto DESC";
             pagos = pagos.DefaultView.ToTable();
 
-            string listado = "";
+            string listado = "<hr>";
 
             foreach (DataRow row in pagos.Rows)
             {
                 listado = listado + row[0].ToString() + "<br>";
-                listado = listado + row[1].ToString() + "<br><br>";
+                listado = listado + row[1].ToString() + "<br><hr>";
             }
             listadoLB.Text = listado;
         }
